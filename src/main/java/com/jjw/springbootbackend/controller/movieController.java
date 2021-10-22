@@ -1,7 +1,7 @@
 package com.jjw.springbootbackend.controller;
 
-import com.jjw.springbootbackend.model.Employee;
-import com.jjw.springbootbackend.repository.EmployeeRepository;
+import com.jjw.springbootbackend.model.movie;
+import com.jjw.springbootbackend.repository.movieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,15 +11,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/")
-public class EmployeeController {
+public class movieController {
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private movieRepository movieRepository;
 
-//    get all employees
-    @GetMapping("/employees")
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+//    get all movies
+    @GetMapping("/movies")
+    public List<movie> getAllmovies() {
+        return movieRepository.findAll();
     }
 
 }
