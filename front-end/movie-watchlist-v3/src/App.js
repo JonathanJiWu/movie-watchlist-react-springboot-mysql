@@ -1,11 +1,16 @@
-
-import './App.css';
-import ListMovieComp from './components/ListMovieComp';
+import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import ListMovieComp from "./components/ListMovieComp";
 
 function App() {
   return (
-    <div className="">
-      <ListMovieComp/>
+    <div>
+      <Header/>
+      <div className="">
+        <ListMovieComp />
+      </div>
+      <Footer/>
     </div>
   );
 }

@@ -26,7 +26,6 @@ public class movie {
     }
 
     //    parameterized constructor
-
     public movie(String movieName, int movieYear, String notes) {
         this.movieName = movieName;
         this.movieYear = movieYear;
