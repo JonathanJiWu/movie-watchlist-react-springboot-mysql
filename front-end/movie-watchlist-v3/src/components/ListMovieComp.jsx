@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
 import MovieService from "../services/MovieService";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 function ListMovieComp() {
   const [movieArr, setMovieArr] = useState([]);
@@ -10,30 +17,33 @@ function ListMovieComp() {
     });
   }, []);
   return (
-    <div>
-      <h2 className="text-center">Your WatchList </h2>
-      <div className="row">
-        <table className="table table-striped table-bordered table-hover">
-          <thead>
-            <tr>
-              <th className="text-center">Movie Name</th>
-              <th className="text-center">Movie Year</th>
-              <th className="text-center">Note</th>
-              <th className="text-center">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {movieArr.map((movieArr) => (
-              <tr key={movieArr.id}>
-                <td>{movieArr.movieName}</td>
-                <td>{movieArr.movieYear}</td>
-                <td>{movieArr.notes}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Movie Name</TableCell>
+            <TableCell align="right">Movie Year</TableCell>
+            <TableCell align="right">Note</TableCell>
+            <TableCell align="right">Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {movieArr.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.movieName}
+              </TableCell>
+              <TableCell align="right">{row.movieYear}</TableCell>
+              <TableCell align="right">{row.notes}</TableCell>
+              <TableCell align="right">{row.notes}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 
