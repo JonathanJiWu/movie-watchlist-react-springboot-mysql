@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Paper from "@mui/material/Paper";
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -27,6 +28,8 @@ export default function FixedBottomNavigation() {
           }}
         >
           <BottomNavigationAction
+            component={Link}
+            to={"/top5Movies"}
             label="Trending"
             icon={<RestoreIcon />}
           />
@@ -34,7 +37,13 @@ export default function FixedBottomNavigation() {
             label="My Watchlist"
             icon={<FavoriteIcon />}
           />
-          <BottomNavigationAction onClick label="Add" icon={<ArchiveIcon />} />
+          <BottomNavigationAction
+          // this is how mui handles routing, import {Link} from react-router-dom and point to link of the component Elegant!
+            component={Link}
+            to={"/addmovie"}
+            label="Add"
+            icon={<ArchiveIcon />}
+          />
           {/* a switch to change dark theme and light theme */}
         </BottomNavigation>
       </Paper>

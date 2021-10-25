@@ -6,7 +6,9 @@ class MovieService {
 
     getMovie(){
         return axios.get(MOVIE_API_URL)
-
+    }
+    addMovie(){
+        return axios.put(MOVIE_API_URL)
     }
 }
 
