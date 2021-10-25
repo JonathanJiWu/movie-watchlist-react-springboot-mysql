@@ -11,6 +11,9 @@ import Paper from "@mui/material/Paper";
 function ListMovieComp() {
   const [movieArr, setMovieArr] = useState([]);
 
+  console.log(movieArr)
+
+
   useEffect(() => {
     MovieService.getMovie().then((res) => {
       setMovieArr(res.data);

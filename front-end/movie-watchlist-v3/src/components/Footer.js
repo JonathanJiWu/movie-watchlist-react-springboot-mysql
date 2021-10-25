@@ -27,14 +27,14 @@ export default function FixedBottomNavigation() {
           }}
         >
           <BottomNavigationAction
-            label="Recents Added"
+            label="Trending"
             icon={<RestoreIcon />}
           />
           <BottomNavigationAction
             label="My Watchlist"
             icon={<FavoriteIcon />}
           />
-          <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
+          <BottomNavigationAction label="Add" icon={<ArchiveIcon />} />
           {/* a switch to change dark theme and light theme */}
         </BottomNavigation>
       </Paper>

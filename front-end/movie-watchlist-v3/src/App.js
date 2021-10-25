@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ListMovieComp from "./components/ListMovieComp";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React from "react";
+import AddMovieComp from "./components/AddMovieComp";
 
 function App() {
   const theme = createTheme({
@@ -22,7 +23,8 @@ function App() {
             <div>
               <Switch>
                 <Route path="/" component = {ListMovieComp}></Route>
-                <Route path="/movies" component = {ListMovieComp}></Route>
+                <Route path="/top5Movies" component = {ListMovieComp}></Route>
+                <Route path="/add-movies" component = {AddMovieComp}></Route>
               </Switch>
             </div>
             <Footer />

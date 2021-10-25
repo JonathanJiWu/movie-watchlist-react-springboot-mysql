@@ -3,10 +3,7 @@ package com.jjw.springbootbackend.controller;
 import com.jjw.springbootbackend.model.movie;
 import com.jjw.springbootbackend.repository.movieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +16,15 @@ public class movieController {
     private movieRepository movieRepository;
 
 //    get all movies
-    @GetMapping("/movies")
+    @GetMapping("/top5Movies")
     public List<movie> getAllmovies() {
         return movieRepository.findAll();
     }
+
+//    create new movie items API
+    @PostMapping("/addmovie")
+    public movie createMovie(@RequestBody movie movie) {
+        return movieRepository.save(movie);
+    }
+
 }
