@@ -21,10 +21,9 @@ public class movieController {
         return movieRepository.findAll();
     }
 
-//    create new movie items API
+//    create new movie item/API
     @PostMapping("/addmovie")
     public movie createMovie(@RequestBody movie movie) {
         return movieRepository.save(movie);
     }
-
 }

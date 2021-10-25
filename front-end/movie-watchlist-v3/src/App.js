@@ -22,9 +22,9 @@ function App() {
             <Header />
             <div>
               <Switch>
-                <Route path="/" component = {ListMovieComp}></Route>
+                <Route path="/" exact component = {ListMovieComp}></Route>
                 <Route path="/top5Movies" component = {ListMovieComp}></Route>
-                <Route path="/add-movies" component = {AddMovieComp}></Route>
+                <Route path="/addmovie" component = {AddMovieComp}></Route>
               </Switch>
             </div>
             <Footer />

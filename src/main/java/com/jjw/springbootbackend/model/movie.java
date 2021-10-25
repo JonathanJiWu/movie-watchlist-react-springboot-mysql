@@ -16,9 +16,8 @@ public class movie {
     private long id;
 
     //column names for the fields
-
-    private String movieName;
-    private int movieYear;
+    private String movie_name;
+    private int movie_year;
     private String notes;
 
     //    empty constructor
@@ -26,9 +25,9 @@ public class movie {
     }
 
     //    parameterized constructor
-    public movie(String movieName, int movieYear, String notes) {
-        this.movieName = movieName;
-        this.movieYear = movieYear;
+    public movie(String movie_name, int movie_year, String notes) {
+        this.movie_name = movie_name;
+        this.movie_year = movie_year;
         this.notes = notes;
     }
 
@@ -41,20 +40,20 @@ public class movie {
         this.id = id;
     }
 
-    public String getMovieName() {
-        return movieName;
+    public String getmovie_name() {
+        return movie_name;
     }
 
-    public void setMovieName(String movieName) {
-        this.movieName = movieName;
+    public void setmovie_name(String movie_name) {
+        this.movie_name = movie_name;
     }
 
-    public int getMovieYear() {
-        return movieYear;
+    public int getmovie_year() {
+        return movie_year;
     }
 
-    public void setMovieYear(int movieYear) {
-        this.movieYear = movieYear;
+    public void setmovie_year(int movie_year) {
+        this.movie_year = movie_year;
     }
 
     public String getNotes() {

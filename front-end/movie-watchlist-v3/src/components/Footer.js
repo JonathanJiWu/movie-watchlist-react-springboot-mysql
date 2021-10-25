@@ -34,7 +34,7 @@ export default function FixedBottomNavigation() {
             label="My Watchlist"
             icon={<FavoriteIcon />}
           />
-          <BottomNavigationAction label="Add" icon={<ArchiveIcon />} />
+          <BottomNavigationAction onClick label="Add" icon={<ArchiveIcon />} />
           {/* a switch to change dark theme and light theme */}
         </BottomNavigation>
       </Paper>
