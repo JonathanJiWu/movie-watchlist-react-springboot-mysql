@@ -6,6 +6,7 @@ import ListMovieComp from "./components/ListMovieComp";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React from "react";
 import AddMovieComp from "./components/AddMovieComp";
+import UpdateMovieComp from "./components/UpdateMovieComp";
 
 function App() {
   const theme = createTheme({
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/" exact component = {ListMovieComp}></Route>
                 <Route path="/top5Movies" component = {ListMovieComp}></Route>
                 <Route path="/addmovie" component = {AddMovieComp}></Route>
+                <Route path="/updatemovie/:id" component = {UpdateMovieComp}></Route>
               </Switch>
             </div>
             <Footer />

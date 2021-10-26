@@ -6,6 +6,9 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import MovieService from "../services/MovieService";
 import { useHistory } from "react-router-dom";
+import SaveIcon from "@mui/icons-material/Save";
+import SendIcon from "@mui/icons-material/Send";
+// import DatePicker from "@mui/lab/DatePicker";
 
 // https://github.com/sonu208012/react-frontend/blob/main/src/components/AddStudent.jsx
 
@@ -27,7 +30,7 @@ function AddMovieComp() {
     }
     // title can't be empty, do we have a value of title?
     if (movieTitleInput) {
-      // turn all the inputs into a JSON object 
+      // turn all the inputs into a JSON object
       let movieInputInfoSlice = {
         movie_name: movieTitleInput,
         movie_year: movieYearMadeInput,
@@ -35,13 +38,13 @@ function AddMovieComp() {
       };
       console.log(movieInputInfoSlice);
 
-      
-
-      MovieService.addMovie(movieInputInfoSlice).then(res =>{
-        history.push('/add-movie');  
-    }).catch(err=>{
-        alert("SOMETHING WENT WRONG!!!");
-    });
+      MovieService.addMovie(movieInputInfoSlice)
+        .then((res) => {
+          history.push("/add-movie");
+        })
+        .catch((err) => {
+          alert("SOMETHING WENT WRONG!!!");
+        });
     }
   };
 
@@ -69,6 +72,7 @@ function AddMovieComp() {
           error={titleInputError}
         />
         {/* TODO: only takes in INT */}
+
         <TextField
           onChange={(e) => setMovieYearMadeInput(e.target.value)}
           id="outlined-textarea"
@@ -76,6 +80,14 @@ function AddMovieComp() {
           placeholder="2016"
           // inputProps={{ inputMode: 'numeric', pattern: '[0-9999]*' }}
         />
+        {/* https://mui.com/components/date-picker/ add localdataprovider to use
+        <DatePicker
+          views={["year"]}
+          label="Year only"
+
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        /> */}
+
         <TextField
           onChange={(e) => setMovieNotesInput(e.target.value)}
           id="outlined-textarea"
@@ -85,14 +97,37 @@ function AddMovieComp() {
           fullwidth="ture"
           rows="2"
         />
-        <Button
-          // onClick={(e) => setMovie}
-          type="submit"
-          variant="contained"
-          // endIcon={<KeyboardArrowRightIcon/>}
-        >
-          Submit
-        </Button>
+        <Box sx={{ "& > button": { m: 1 } }}>
+          <Button
+            // onClick={handleClick}
+            // loading={loading}
+            loadingIndicator="Loading..."
+            variant="outlined"
+          >
+            Fetch data
+          </Button>
+          {/* add routing after submit and update */}
+          <Button
+            // onClick={handleClick}
+            endIcon={<SendIcon />}
+            // loading={loading}
+            loadingPosition="end"
+            variant="contained"
+          >
+            UPDATA
+          </Button>
+          <Button
+            color="secondary"
+            // onClick={handleClick}
+            // loading={loading}
+            loadingPosition="start"
+            startIcon={<SaveIcon />}
+            variant="contained"
+            type="submit"
+          >
+            Save
+          </Button>
+        </Box>
       </Box>
     </Container>
   );

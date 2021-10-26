@@ -56,6 +56,8 @@ public class movie {
         this.movie_year = movie_year;
     }
 
+
+
     public String getNotes() {
         return notes;
     }
