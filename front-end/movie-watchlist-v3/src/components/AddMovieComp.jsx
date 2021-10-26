@@ -4,12 +4,17 @@ import TextField from "@mui/material/TextField";
 import * as React from "react";
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import MovieService from "../services/MovieService";
+import { useHistory } from "react-router-dom";
+
+// https://github.com/sonu208012/react-frontend/blob/main/src/components/AddStudent.jsx
 
 function AddMovieComp() {
   const [movieTitleInput, setmovieTitleInput] = useState("");
   const [movieYearMadeInput, setMovieYearMadeInput] = useState("");
   const [movieNotesInput, setMovieNotesInput] = useState("");
   const [titleInputError, setTitleInputError] = useState(false);
+  let history = useHistory();
 
   const handleSubmitEvents = (e) => {
     //   stop refresh
@@ -22,13 +27,21 @@ function AddMovieComp() {
     }
     // title can't be empty, do we have a value of title?
     if (movieTitleInput) {
-      console.log(movieTitleInput, movieYearMadeInput, movieNotesInput);
+      // turn all the inputs into a JSON object 
       let movieInputInfoSlice = {
         movie_name: movieTitleInput,
         movie_year: movieYearMadeInput,
         notes: movieNotesInput,
       };
       console.log(movieInputInfoSlice);
+
+      
+
+      MovieService.addMovie(movieInputInfoSlice).then(res =>{
+        history.push('/add-movie');  
+    }).catch(err=>{
+        alert("SOMETHING WENT WRONG!!!");
+    });
     }
   };
 
@@ -55,11 +68,13 @@ function AddMovieComp() {
           fullwidth="ture"
           error={titleInputError}
         />
+        {/* TODO: only takes in INT */}
         <TextField
           onChange={(e) => setMovieYearMadeInput(e.target.value)}
           id="outlined-textarea"
           label="Year"
           placeholder="2016"
+          // inputProps={{ inputMode: 'numeric', pattern: '[0-9999]*' }}
         />
         <TextField
           onChange={(e) => setMovieNotesInput(e.target.value)}

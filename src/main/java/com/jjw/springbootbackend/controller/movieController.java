@@ -9,21 +9,23 @@ import java.util.List;
 
 @CrossOrigin(origins ="http://localhost:3000/")
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api")
 public class movieController {
 
     @Autowired
     private movieRepository movieRepository;
 
 //    get all movies
-    @GetMapping("/top5Movies")
-    public List<movie> getAllmovies() {
+    @GetMapping("/top-5-movies")
+    public List<movie> getAllMovies() {
         return movieRepository.findAll();
     }
 
 //    create new movie item/API
-    @PostMapping("/addmovie")
+    @PostMapping("/add-movie")
     public movie createMovie(@RequestBody movie movie) {
         return movieRepository.save(movie);
     }
+//    https://github.com/sonu208012/eclipse_projects/blob/master/src/main/java/com/example/react/controller/StudentController.java
+
 }
