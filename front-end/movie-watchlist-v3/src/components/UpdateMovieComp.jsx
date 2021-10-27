@@ -8,8 +8,9 @@ import MovieService from "../services/MovieService";
 import { useHistory } from "react-router-dom";
 import SaveIcon from "@mui/icons-material/Save";
 import SendIcon from "@mui/icons-material/Send";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Typography from "@mui/material/Typography";
+import ClearIcon from "@mui/icons-material/Clear";
 
 function UpdateMovieComp() {
   const { id } = useParams();
@@ -49,6 +50,10 @@ function UpdateMovieComp() {
       .catch((err) => {
         alert("SOMETHING WENT WRONG!!!");
       });
+  };
+
+  const cancelAction = () => {
+    history.push("/top5Movies");
   };
 
   return (
@@ -119,6 +124,13 @@ function UpdateMovieComp() {
             // to={"/top5Movies"}
           >
             Save
+          </Button>
+          <Button
+            variant="outlined"
+            onClick={() => cancelAction()}
+            endIcon={<ClearIcon />}
+          >
+            CANCEL
           </Button>
         </Box>
       </Box>

@@ -8,6 +8,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Paper from "@mui/material/Paper";
 import * as React from "react";
 import { Link } from "react-router-dom";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import InfoIcon from "@mui/icons-material/Info";
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -31,18 +34,27 @@ export default function FixedBottomNavigation() {
             component={Link}
             to={"/top5Movies"}
             label="Trending"
-            icon={<RestoreIcon />}
+            icon={<WhatshotIcon />}
           />
           <BottomNavigationAction
+            component={Link}
+            to={"/mywatchlist"}
             label="My Watchlist"
             icon={<FavoriteIcon />}
           />
           <BottomNavigationAction
-          // this is how mui handles routing, import {Link} from react-router-dom and point to link of the component Elegant!
+            // this is how mui handles routing, import {Link} from react-router-dom and point to link of the component Elegant!
             component={Link}
             to={"/addmovie"}
             label="Add"
-            icon={<ArchiveIcon />}
+            icon={<AddBoxIcon />}
+          />
+          <BottomNavigationAction
+            // this is how mui handles routing, import {Link} from react-router-dom and point to link of the component Elegant!
+            component={Link}
+            to={"/about"}
+            label="About"
+            icon={<InfoIcon />}
           />
           {/* a switch to change dark theme and light theme */}
         </BottomNavigation>

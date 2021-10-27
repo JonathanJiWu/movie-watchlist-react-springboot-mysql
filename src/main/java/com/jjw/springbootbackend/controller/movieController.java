@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins ="http://localhost:3000/")
 @RestController
@@ -28,7 +30,6 @@ public class movieController {
     public movie createMovie(@RequestBody movie movie) {
         return movieRepository.save(movie);
     }
-//    https://github.com/sonu208012/eclipse_projects/blob/master/src/main/java/com/example/react/controller/StudentController.java
 
 //    search/get movie by id so update can use it
     @GetMapping("/movies/{id}")
@@ -46,6 +47,20 @@ public class movieController {
         movie updatedMovie = movieRepository.save(m);
         return ResponseEntity.ok(updatedMovie);
     }
+
+//    delete!
+    @DeleteMapping("/movies/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteMovie(@PathVariable Long id){
+        movie m = movieRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Movie not found"));
+
+        movieRepository.delete(m);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
+    }
+
+
 
 
 }

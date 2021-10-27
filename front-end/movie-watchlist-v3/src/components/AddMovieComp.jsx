@@ -5,10 +5,11 @@ import * as React from "react";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import MovieService from "../services/MovieService";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SaveIcon from "@mui/icons-material/Save";
 import SendIcon from "@mui/icons-material/Send";
-import { Link } from "react-router-dom";
+import ClearIcon from "@mui/icons-material/Clear";
+// import { Link } from "react-router-dom";
 import ListMovieComp from "../components/ListMovieComp";
 // import DatePicker from "@mui/lab/DatePicker";
 
@@ -43,17 +44,18 @@ function AddMovieComp() {
 
       MovieService.addMovie(movieInputInfoSlice)
         .then((res) => {
-          history.push("/add-movie");
+          history.push("/top5Movies");
         })
         .catch((err) => {
           alert("SOMETHING WENT WRONG!!!");
         });
-        
-        if(movieInputInfoSlice){
-          return <ListMovieComp/>
-        }
     }
   };
+
+  const cancelAction=()=>{
+    history.push("/top5Movies");
+
+  }
 
   return (
     <Container container justify="center">
@@ -115,6 +117,13 @@ function AddMovieComp() {
           >
             Save
           </Button>
+          <Button
+            onClick={() => cancelAction()}
+            variant="outlined"
+            endIcon={<ClearIcon />}
+          >
+            CANCEL
+          </Button>
         </Box>
       </Box>
     </Container>
@@ -122,47 +131,3 @@ function AddMovieComp() {
 }
 
 export default AddMovieComp;
-
-// import { makeStyles } from "@mui/styles";
-// * an attempt to style the text fields
-// const useStyles = makeStyles({
-//   field: {
-//     marginTop: 50,
-//     marginBottom: 20,
-//     display: "block",
-//   },
-// });
-
-// function Create(){
-//     const classes = useStyles()
-// }
-
-{
-  /* <TextField
-          onChange={(e) => setMovieYearMadeInput(e.target.value)}
-          id="outlined-textarea"
-          label="Year"
-          placeholder="2016"
-          // inputProps={{ inputMode: 'numeric', pattern: '[0-9999]*' }}
-        /> */
-}
-{
-  /* https://mui.com/components/date-picker/ add localdataprovider to use
-        <DatePicker
-          views={["year"]}
-          label="Year only"
-
-          renderInput={(params) => <TextField {...params} helperText={null} />}
-        /> */
-}
-{
-  /* <TextField
-  onChange={(e) => setMovieNotesInput(e.target.value)}
-  id="outlined-textarea"
-  label="Notes"
-  placeholder="Mind-blowing!!!"
-  multiline
-  fullwidth="ture"
-  rows="2"
-/> */
-}

@@ -7,6 +7,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React from "react";
 import AddMovieComp from "./components/AddMovieComp";
 import UpdateMovieComp from "./components/UpdateMovieComp";
+import MyWatchList from "./components/MyWatchList";
+import About from "./components/About";
 
 function App() {
   const theme = createTheme({
@@ -27,6 +29,8 @@ function App() {
                 <Route path="/top5Movies" component = {ListMovieComp}></Route>
                 <Route path="/addmovie" component = {AddMovieComp}></Route>
                 <Route path="/updatemovie/:id" component = {UpdateMovieComp}></Route>
+                <Route path="/mywatchlist" component = {MyWatchList}></Route>
+                <Route path="/about" component = {About}></Route>
               </Switch>
             </div>
             <Footer />

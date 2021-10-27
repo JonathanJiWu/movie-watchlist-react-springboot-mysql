@@ -16,30 +16,28 @@ import { useHistory } from "react-router-dom";
 // import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 
-function ListMovieComp() {
+function MyWatchList() {
   const [movieArr, setMovieArr] = useState([]);
   let history = useHistory();
+  // let movieArrReversed = movieArr.reverse();
 
   // jump to update movie router using the id as key and keep that info to fill in the defaults in the new page
   const updateMovieFromList = (id) => {
     history.push(`/updatemovie/${id}`);
   };
-  
+
   const deleteMovieFromList = (id) => {
     // talk to API to delete the movieinfo slice with this id
-    MovieService.deleteMovie(id).then(res=>{
-    // after the response, reset the state with the new database
-    // filer the deleted movieinfo slice out
+    MovieService.deleteMovie(id).then((res) => {
+      // after the response, reset the state with the new database
+      // filer the deleted movieinfo slice out
 
-    setMovieArr(movieArr.filter(
-      newMovieState=>newMovieState.id !==id
-    ))
-
-
-
-
-    })
+      setMovieArr(movieArr.filter((newMovieState) => newMovieState.id !== id));
+    });
   };
+  useEffect(() => {
+    console.log(movieArr.reverse());
+  });
 
   useEffect(() => {
     MovieService.getMovie().then((res) => {
@@ -62,7 +60,7 @@ function ListMovieComp() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {movieArr.map((row) => (
+            {movieArr.reverse().map((row) => (
               <TableRow
                 key={row.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -102,4 +100,4 @@ function ListMovieComp() {
   );
 }
 
-export default ListMovieComp;
+export default MyWatchList;
