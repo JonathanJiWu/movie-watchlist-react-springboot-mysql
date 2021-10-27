@@ -69,7 +69,7 @@ function UpdateMovieComp() {
         fullwidth="ture"
         onSubmit={handleSubmitEvents}
       >
-        <Box sx={{ width: "100%", maxWidth: 500 }}>
+        <Box sx={{ width: "90%", maxWidth: 1500, m:5}}>
           <Typography variant="h2" gutterBottom component="div">
             {movie.movie_name}
             <Box sx={{ m: 3, bgcolor: "background.paper" }}></Box>
@@ -101,7 +101,7 @@ function UpdateMovieComp() {
           onChange={(e) => setMovieNoteToUpdate(e.target.value)}
         />
         <Box sx={{ m: 3, bgcolor: "background.paper" }}></Box>
-        <Box sx={{ "& > button": { m: 3 } }}>
+        <Box sx={{ "& > button": { m: 4 } }}>
           {/* add routing after submit and update */}
           <Button
             endIcon={<SendIcon />}
