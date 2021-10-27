@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import SaveIcon from "@mui/icons-material/Save";
 import SendIcon from "@mui/icons-material/Send";
 import { Link } from "react-router-dom";
+import ListMovieComp from "../components/ListMovieComp";
 // import DatePicker from "@mui/lab/DatePicker";
 
 // https://github.com/sonu208012/react-frontend/blob/main/src/components/AddStudent.jsx
@@ -47,6 +48,10 @@ function AddMovieComp() {
         .catch((err) => {
           alert("SOMETHING WENT WRONG!!!");
         });
+        
+        if(movieInputInfoSlice){
+          return <ListMovieComp/>
+        }
     }
   };
 

@@ -12,18 +12,12 @@ class MovieService {
   getMovieById(movieId) {
     return axios.get(MOVIE_API_URL + "/movies/" + movieId);
   }
-
-  // getStudentById(id){
-  //     return axios.get(STUDENT_API_BASE_URL+"/student/"+id);
-  // }
-
-  // updateStudent(student,id){
-  //     return axios.put(STUDENT_API_BASE_URL+"/student/"+id,student);
-  // }
-
-  // deleteStudent(id){
-  //     return axios.delete(STUDENT_API_BASE_URL+"/student/"+id);
-  // }
+  updateMovie(movie, movieId){
+    return axios.put(MOVIE_API_URL + "/movies/"+ movieId, movie);
+  }
+  deleteMovie(id){
+    return axios.delete(MOVIE_API_URL+"/movies/"+id)
+  }
 }
 
 export default new MovieService();
