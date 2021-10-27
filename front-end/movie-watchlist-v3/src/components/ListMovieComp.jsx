@@ -13,17 +13,17 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 // holds info of the pervious page
 import { useHistory } from "react-router-dom";
+// import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 function ListMovieComp() {
   const [movieArr, setMovieArr] = useState([]);
   let history = useHistory();
 
   // jump to update movie router using the id as key and keep that info to fill in the defaults in the new page
-  const updateMovieFromList=(id)=>{
-    history.push(`/updatemovie/${id}`)
-    console.log(`/updatemovie/${id}`)
-
-  }
+  const updateMovieFromList = (id) => {
+    history.push(`/updatemovie/${id}`);
+  };
 
   useEffect(() => {
     MovieService.getMovie().then((res) => {
@@ -31,7 +31,10 @@ function ListMovieComp() {
     });
   }, []);
   return (
+    // <Box sx={{ p: 1, bgcolor: 'background.paper' }}>p: 1</Box>
+
     <Container>
+      <Box sx={{ m: 2, bgcolor: "background.paper" }}></Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -58,8 +61,8 @@ function ListMovieComp() {
                     aria-label="delete"
                     size="small"
                     onClick={() => {
-                      updateMovieFromList(row.id)
-                      console.log(row.id)
+                      updateMovieFromList(row.id);
+                      // console.log(row.id);
                     }}
                   >
                     <EditIcon fontSize="inherit" />

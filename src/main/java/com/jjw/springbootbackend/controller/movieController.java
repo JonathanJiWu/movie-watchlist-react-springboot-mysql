@@ -30,7 +30,13 @@ public class movieController {
     }
 //    https://github.com/sonu208012/eclipse_projects/blob/master/src/main/java/com/example/react/controller/StudentController.java
 
-//    update exist movie
+//    search/get movie by id so update can use it
+    @GetMapping("/movies/{id}")
+    public ResponseEntity<movie> getMovieById(@PathVariable long id){
+        movie m = movieRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Movie not found"));
+        return ResponseEntity.ok(m);
+    }
+    //    update exist movie
     @PutMapping("/movies/{id}")
     public ResponseEntity<movie> updateMovie(@PathVariable long id, @RequestBody movie movie){
         movie m = movieRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Movie not found"));

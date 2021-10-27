@@ -8,6 +8,7 @@ import MovieService from "../services/MovieService";
 import { useHistory } from "react-router-dom";
 import SaveIcon from "@mui/icons-material/Save";
 import SendIcon from "@mui/icons-material/Send";
+import { Link } from "react-router-dom";
 // import DatePicker from "@mui/lab/DatePicker";
 
 // https://github.com/sonu208012/react-frontend/blob/main/src/components/AddStudent.jsx
@@ -30,13 +31,14 @@ function AddMovieComp() {
     }
     // title can't be empty, do we have a value of title?
     if (movieTitleInput) {
+      // TODO: why is this not working? use routelink jump for now
+      // history.push("/top5Movies")
       // turn all the inputs into a JSON object
       let movieInputInfoSlice = {
         movie_name: movieTitleInput,
         movie_year: movieYearMadeInput,
         notes: movieNotesInput,
       };
-      console.log(movieInputInfoSlice);
 
       MovieService.addMovie(movieInputInfoSlice)
         .then((res) => {
@@ -50,6 +52,7 @@ function AddMovieComp() {
 
   return (
     <Container container justify="center">
+      <Box sx={{ m: 2, bgcolor: "background.paper" }}></Box>
       <Box
         component="form"
         sx={{
@@ -61,69 +64,49 @@ function AddMovieComp() {
         onSubmit={handleSubmitEvents}
       >
         <TextField
-          // className={classes.field}
-          //   take the submit
+          required
+          id="standard-required"
+          label="Movie Title Required"
           onChange={(e) => setmovieTitleInput(e.target.value)}
-          id="outlined-basic"
-          label="Movie"
-          placeholder="Arrival"
-          variant="outlined"
-          fullwidth="ture"
+          variant="standard"
           error={titleInputError}
         />
-        {/* TODO: only takes in INT */}
-
+        {/* TODO DONE only takes in INT ! DONE*/}
         <TextField
           onChange={(e) => setMovieYearMadeInput(e.target.value)}
-          id="outlined-textarea"
+          id="standard-number"
           label="Year"
-          placeholder="2016"
-          // inputProps={{ inputMode: 'numeric', pattern: '[0-9999]*' }}
+          type="number"
+          variant="standard"
         />
-        {/* https://mui.com/components/date-picker/ add localdataprovider to use
-        <DatePicker
-          views={["year"]}
-          label="Year only"
-
-          renderInput={(params) => <TextField {...params} helperText={null} />}
-        /> */}
-
         <TextField
-          onChange={(e) => setMovieNotesInput(e.target.value)}
-          id="outlined-textarea"
+          id="standard-basic"
           label="Notes"
-          placeholder="Mind-blowing!!!"
-          multiline
-          fullwidth="ture"
-          rows="2"
+          variant="standard"
+          onChange={(e) => setMovieNotesInput(e.target.value)}
         />
-        <Box sx={{ "& > button": { m: 1 } }}>
-          <Button
-            // onClick={handleClick}
-            // loading={loading}
-            loadingIndicator="Loading..."
-            variant="outlined"
-          >
-            Fetch data
-          </Button>
+        <Box sx={{ m: 3, bgcolor: "background.paper" }}></Box>
+        <Box sx={{ "& > button": { m: 3 } }}>
           {/* add routing after submit and update */}
           <Button
-            // onClick={handleClick}
             endIcon={<SendIcon />}
-            // loading={loading}
             loadingPosition="end"
             variant="contained"
+            type="submit"
+            // component={Link}
+            // to={"/top5Movies"}
           >
             UPDATA
           </Button>
+          {/* <Box sx={{ m: 3, bgcolor: "background.paper" }}></Box> */}
           <Button
             color="secondary"
-            // onClick={handleClick}
-            // loading={loading}
             loadingPosition="start"
-            startIcon={<SaveIcon />}
+            endIcon={<SaveIcon />}
             variant="contained"
             type="submit"
+            // component={Link}
+            // to={"/top5Movies"}
           >
             Save
           </Button>
@@ -148,3 +131,33 @@ export default AddMovieComp;
 // function Create(){
 //     const classes = useStyles()
 // }
+
+{
+  /* <TextField
+          onChange={(e) => setMovieYearMadeInput(e.target.value)}
+          id="outlined-textarea"
+          label="Year"
+          placeholder="2016"
+          // inputProps={{ inputMode: 'numeric', pattern: '[0-9999]*' }}
+        /> */
+}
+{
+  /* https://mui.com/components/date-picker/ add localdataprovider to use
+        <DatePicker
+          views={["year"]}
+          label="Year only"
+
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        /> */
+}
+{
+  /* <TextField
+  onChange={(e) => setMovieNotesInput(e.target.value)}
+  id="outlined-textarea"
+  label="Notes"
+  placeholder="Mind-blowing!!!"
+  multiline
+  fullwidth="ture"
+  rows="2"
+/> */
+}
