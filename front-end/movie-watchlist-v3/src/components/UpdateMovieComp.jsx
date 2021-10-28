@@ -44,7 +44,7 @@ function UpdateMovieComp() {
 
     MovieService.updateMovie(movieInputInfoSlice, id)
       .then((res) => {
-        history.push("/movies/");
+        history.push("/top5Movies/");
       })
       .catch((err) => {
         alert("SOMETHING WENT WRONG!!!");
