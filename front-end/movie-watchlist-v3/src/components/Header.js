@@ -1,16 +1,14 @@
-import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
+import AppBar from "@mui/material/AppBar";
+import Autocomplete from "@mui/material/Autocomplete";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import InputBase from "@mui/material/InputBase";
+import { alpha, styled } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { Link } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
@@ -79,7 +77,7 @@ export default function SearchAppBar() {
             // component={Link}
             // to={"/top5Movies"}
           >
-            EYE LEVEL
+            eye level
           </Typography>
 
           {/* <Search> */}
