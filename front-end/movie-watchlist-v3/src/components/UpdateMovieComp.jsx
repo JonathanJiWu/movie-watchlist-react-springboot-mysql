@@ -1,16 +1,15 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import TextField from "@mui/material/TextField";
-import * as React from "react";
-import { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
-import MovieService from "../services/MovieService";
-import { useHistory } from "react-router-dom";
+import ClearIcon from "@mui/icons-material/Clear";
 import SaveIcon from "@mui/icons-material/Save";
 import SendIcon from "@mui/icons-material/Send";
-import { useParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import ClearIcon from "@mui/icons-material/Clear";
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import MovieService from "../services/MovieService";
 
 function UpdateMovieComp() {
   const { id } = useParams();

@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import MovieService from "../services/MovieService";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+// import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
+import React, { useEffect, useState } from "react";
 // holds info of the pervious page
 import { useHistory } from "react-router-dom";
-// import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import MovieService from "../services/MovieService";
 
 function MyWatchList() {
   const [movieArr, setMovieArr] = useState([]);

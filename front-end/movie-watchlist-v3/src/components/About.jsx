@@ -2,7 +2,7 @@ import DoNotTouchIcon from "@mui/icons-material/DoNotTouch";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { CardActionArea, CardActions } from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -13,7 +13,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import jonlearnjava from "../resource/jonlearnjava.png"
+import jonlearnjava from "../resource/jonlearnjava.png";
 
 const Input = styled("input")({
   display: "none",

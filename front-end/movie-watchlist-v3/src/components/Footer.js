@@ -1,6 +1,7 @@
-import ArchiveIcon from "@mui/icons-material/Archive";
+import AddBoxIcon from "@mui/icons-material/AddBox";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import RestoreIcon from "@mui/icons-material/Restore";
+import InfoIcon from "@mui/icons-material/Info";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Box from "@mui/material/Box";
@@ -8,9 +9,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Paper from "@mui/material/Paper";
 import * as React from "react";
 import { Link } from "react-router-dom";
-import AddBoxIcon from "@mui/icons-material/AddBox";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
-import InfoIcon from "@mui/icons-material/Info";
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
