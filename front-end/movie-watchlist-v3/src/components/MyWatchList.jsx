@@ -54,7 +54,7 @@ function MyWatchList() {
           <TableHead>
             <TableRow>
               <TableCell>Movie Name</TableCell>
-              <TableCell align="right">Movie Year</TableCell>
+              <TableCell align="right">Year</TableCell>
               <TableCell align="right">Note</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>

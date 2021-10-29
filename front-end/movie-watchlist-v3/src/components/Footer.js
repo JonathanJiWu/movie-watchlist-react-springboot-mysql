@@ -37,7 +37,7 @@ export default function FixedBottomNavigation() {
           <BottomNavigationAction
             component={Link}
             to={"/mywatchlist"}
-            label="My Watchlist"
+            label="Watchlist"
             icon={<FavoriteIcon />}
           />
           <BottomNavigationAction
