@@ -29,10 +29,11 @@ export default function FixedBottomNavigation() {
           }}
         >
           <BottomNavigationAction
+            // this is how mui handles routing, import {Link} from react-router-dom and point to link of the component Elegant!
             component={Link}
-            to={"/top5Movies"}
-            label="Trending"
-            icon={<WhatshotIcon />}
+            to={"/addmovie"}
+            label="Add"
+            icon={<AddBoxIcon />}
           />
           <BottomNavigationAction
             component={Link}
@@ -41,11 +42,10 @@ export default function FixedBottomNavigation() {
             icon={<FavoriteIcon />}
           />
           <BottomNavigationAction
-            // this is how mui handles routing, import {Link} from react-router-dom and point to link of the component Elegant!
             component={Link}
-            to={"/addmovie"}
-            label="Add"
-            icon={<AddBoxIcon />}
+            to={"/top5Movies"}
+            label="Trending"
+            icon={<WhatshotIcon />}
           />
           <BottomNavigationAction
             // this is how mui handles routing, import {Link} from react-router-dom and point to link of the component Elegant!

@@ -24,7 +24,7 @@ function About() {
     <Container>
       <Box sx={{ width: "95%", maxWidth: 1800 }}>
         <Typography variant="h2" paragraph component="div">
-          <Box sx={{ m: 10, bgcolor: "background.paper" }}></Box>
+          <Box sx={{ m: 5, bgcolor: "background.paper" }}></Box>
           Meet the dev of this site!
           <Box sx={{ m: 3, bgcolor: "background.paper" }}></Box>
         </Typography>

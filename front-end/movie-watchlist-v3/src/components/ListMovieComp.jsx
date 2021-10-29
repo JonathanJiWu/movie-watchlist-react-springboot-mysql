@@ -42,7 +42,8 @@ function ListMovieComp() {
       // after the response, reset the state with the new database
       // filer the deleted movieinfo slice out
       setMovieArr(movieArr.filter((newMovieState) => newMovieState.id !== id));
-      // TODO: why is this not working? two functions triggering by one, only the function in the front will fire
+      // TODO==done why is this not working? two functions triggering by one, only the function in the front will fire
+      // it's because that delete needs a argument to be passed
       handleClose();
     });
   };
@@ -62,12 +63,6 @@ function ListMovieComp() {
   const handleClose = () => {
     setOpen(false);
   };
-
-  // trid wrapper function
-  // const handleCloseConfirmDelete = (e) => {
-  //   deleteMovieFromList();
-  //   setOpen(false);
-  // };
 
   return (
     // <Box sx={{ p: 1, bgcolor: 'background.paper' }}>p: 1</Box>
@@ -101,7 +96,6 @@ function ListMovieComp() {
                     size="small"
                     onClick={() => {
                       updateMovieFromList(row.id);
-                      // console.log(row.id);
                     }}
                   >
                     <EditIcon fontSize="inherit" />
@@ -136,7 +130,7 @@ function ListMovieComp() {
                       <Button onClick={handleClose}>No</Button>
                       <Button
                         onClick={() => {
-                          deleteMovieFromList();
+                          deleteMovieFromList(row.id);
                         }}
                       >
                         Yes, delete
