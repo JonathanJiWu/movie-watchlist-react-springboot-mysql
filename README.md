@@ -6,3 +6,6 @@ This is a movie watch list manager app, it keeps track of what movie you want to
 This is my first full-stack website, hope you like it. It was REALLY HARD to make!! 
 
 There are more functions coming up like signing up for your account and making personal lists, introducing posters and more info for each movie entry, and letting users cross-reference their watchlist to find movies they all want to watch.
+
+this is the front-end:
+https://github.com/JonathanJiWu/eye-level
